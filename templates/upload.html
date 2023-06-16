@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Upload Image</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+  <style>
+    body {
+      background-color: #add8e6;
+    }
+
+    .center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 50%;
+    }
+
+    .card-img-top {
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card {
+      border-radius: 10px;
+    }
+
+    .card-img-overlay {
+      padding: 1rem;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+
+
+    .card-img-overlay h5 {
+      margin-bottom: 0;
+    }
+
+    .btn-custom {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    .btn-custom:hover {
+      background-color: #4caf50;
+      color: #fff;
+      opacity: 0.8;
+    }
+
+    /* NAVBAR CSS ------------------------------------------- */
+    .navbar-section {
+      background-color: #add8e6;
+      color: white;
+    }
+
+    .navbar-section li {
+
+      list-style-type: none;
+      display: inline-block;
+      margin: 20px;
+    }
+
+    .navbar-section a {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+      padding: 30px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 24px;
+    }
+
+    .navbar-section a:hover {
+      background-color: #4caf50;
+      border-radius: 10px;
+      padding: 10px;
+    }
+
+    .footer {
+      padding: 40px 0;
+      background-color: #add8e6;
+      color: black;
+    }
+
+    .footer .social {
+      text-align: center;
+      padding-bottom: 25px;
+      color: black;
+    }
+
+    .footer .social a {
+      font-size: 24px;
+      color: inherit;
+      border: 1px solid #ccc;
+      width: 40px;
+      height: 40px;
+      line-height: 38px;
+      display: inline-block;
+      text-align: center;
+      border-radius: 50%;
+      margin: 0 8px;
+      opacity: 0.75;
+    }
+
+    .footer .social a:hover {
+      opacity: 0.9;
+    }
+
+    .footer ul {
+      margin-top: 0;
+      padding: 0;
+      list-style: none;
+      text-align: center;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    .footer ul a {
+      color: inherit;
+      text-decoration: none;
+      opacity: 0.8;
+    }
+
+    .footer ul li {
+      display: inline-block;
+      padding: 0 15px;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .footer ul a:hover {
+      opacity: 1;
+    }
+
+    .footer .copyright {
+      margin-top: 15px;
+      text-align: center;
+      font-size: 13px;
+      color: black;
+      font-size: 20px;
+    }
+    input[type="submit"]:hover {
+    background-color: #4ca182;
+  }
+  </style>
+</head>
+
+<body>
+
+  <section class="navbar-section">
+
+    <ul>
+      <li>
+        <a href="">Home</a>
+      </li>
+      <li>
+        <a href="{{ url_for('about') }}">About</a>
+      </li>
+      <li>
+        <a href="">Contact</a>
+      </li>
+      <li>
+        <a href="">Help</a>
+      </li>
+    </ul>
+
+  </section>
+
+  <div class="container mt-5">
+
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="card">
+          <div class="card-body">
+
+            <h2 class="text-center mb-4">Choose Outfit</h2>
+
+            <form action="{{ url_for('upload') }}" method="post" enctype="multipart/form-data">
+              <div class="form-group" >
+                <label for="file">Select image:</label>
+                <input type="file" class="form-control-file" id="file" name="file" />
+              </div>
+              <button type="submit" class="btn btn-custom btn-block">
+                Upload
+              </button>
+            </form>
+            <hr />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <section class="footer">
+    <div class="social">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-snapchat"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+    </div>
+    <ul class="list">
+      <li>
+        <a href="#">Home</a>
+      </li>
+      <li>
+        <a href="#">Services</a>
+      </li>
+      <li>
+        <a href="{{ url_for('about') }}">About</a>
+      </li>
+      <li>
+        <a href="#">Terms</a>
+      </li>
+      <li>
+        <a href="#">Privacy Policy</a>
+      </li>
+    </ul>
+    <p class="copyright">Support @ Fasionita.com 2023</p>
+  </section>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
