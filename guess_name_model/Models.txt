@@ -1,0 +1,1 @@
+This is the Location where you have to put your Trained model(Resnet-18)
